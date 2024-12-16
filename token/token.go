@@ -44,6 +44,14 @@ const (
 	RETURN
 )
 
+func (tt TokenType) String() string {
+	if typeStr, ok := TokenTypeMap[tt]; ok {
+		return typeStr
+	}
+
+	return fmt.Sprintf("%d", tt)
+}
+
 var TokenTypeMap = map[TokenType]string{
 	EOF:     "EOF",
 	ILLEGAL: "ILLEGAL",
@@ -96,7 +104,7 @@ func TokenTypeToString(tokenType TokenType) string {
 		return typeStr
 	}
 
-	return fmt.Sprint(tokenType)
+	return fmt.Sprintf("%d", tokenType)
 }
 
 var keywords = map[string]TokenType{
